@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:udemy_quiz_app/result.dart';
 
 import './quiz.dart';
@@ -30,7 +31,7 @@ class _MyAppState extends State<MyApp> {
 
   final _questions = const [
     {
-      "questionText": "What's your favorite color",
+      "questionText": "What's your favorite color ?",
       "answers": [
         {"text": "Black", "score": 10},
         {"text": "White", "score": 8},
@@ -39,23 +40,41 @@ class _MyAppState extends State<MyApp> {
       ],
     },
     {
-      "questionText": "What's your favorite team",
+      "questionText": "Which is  your favorite team ?",
       "answers": [
-        {"text": "mumbai", "score": 10},
-        {"text": "channai", "score": 8},
-        {"text": "pune", "score": 6},
-        {"text": "delhi", "score": 4},
+        {"text": "MI", "score": 10},
+        {"text": "CSK", "score": 8},
+        {"text": "RCB", "score": 6},
+        {"text": "SRH", "score": 4},
       ],
     },
     {
-      "questionText": "What's your favorite time",
+      "questionText": "What's your favorite time ?",
       "answers": [
         {"text": "morning", "score": 10},
         {"text": "afternoon", "score": 8},
         {"text": "night", "score": 6},
         {"text": "all", "score": 4},
       ],
-    }
+    },
+    {
+      "questionText": "Which is your favorite City ?",
+      "answers": [
+        {"text": "Sangli", "score": 10},
+        {"text": "Mumbai", "score": 8},
+        {"text": "Pune", "score": 6},
+        {"text": "Delhi", "score": 4},
+      ],
+    },
+    {
+      "questionText": "Which is your favorite Game ?",
+      "answers": [
+        {"text": "Cricket", "score": 10},
+        {"text": "Badminton", "score": 8},
+        {"text": "Hockey", "score": 6},
+        {"text": "Kabbadi", "score": 4},
+      ],
+    },
   ];
 
   void _answerQuestion(int score) {
@@ -78,9 +97,15 @@ class _MyAppState extends State<MyApp> {
     // question list
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Colors.yellow,
         appBar: AppBar(
-          title: Text("Quiz app"),
+          title: Text(
+            "Quiz app",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          ),
+          centerTitle: true,
         ),
         body: _questionIndex < _questions.length
             ? Quiz(

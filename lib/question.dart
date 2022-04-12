@@ -9,9 +9,28 @@ class Question extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      questionText,
-      style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+    return Container(
+      child: Card(
+        elevation: 5,
+        child: Column(
+          children: [
+            ListTile(
+              leading: Icon(
+                Icons.question_answer_outlined,
+                size: 30,
+              ),
+              title: Text(
+                questionText,
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.purple,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
